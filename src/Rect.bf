@@ -80,7 +80,7 @@ struct Rect
 	    }
 	}
 
-	public int Left
+	public int32 Left
 	{
 		get => X;
 		set	mut
@@ -91,7 +91,7 @@ struct Rect
 		}
 	}
 
-	public int Right
+	public int32 Right
 	{
 		get => X + Width;
 		set	mut
