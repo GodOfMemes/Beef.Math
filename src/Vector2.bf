@@ -3,7 +3,7 @@ using System.Globalization;
 namespace BeefMath;
 
 struct Vector2<T> : IEquatable<Self>, IFormattable
-	where T : IFormattable, operator T <=> T
+	where T : IFormattable
 {
 	public T X;
 	public T Y;
@@ -16,8 +16,8 @@ struct Vector2<T> : IEquatable<Self>, IFormattable
 	public static Self UnitY => .(Scalar<T>.Zero,Scalar<T>.One);
 	public static Self Zero => default;
 
-	public T Length => Scalar<T>.Sqrt(LengthSquared);
-	public T LengthSquared => Dot(this,this);
+	//public T Length => Scalar<T>.Sqrt(LengthSquared);
+	//public T LengthSquared => Dot(this,this);
 
 	public static Self operator +(Self l, Self r) => .(Scalar<T>.Add(l.X,r.X),Scalar<T>.Add(l.Y,r.Y));
 	public static Self operator +(Self l, T s) => .(Scalar<T>.Add(l.X,s),Scalar<T>.Add(l.Y,s));
