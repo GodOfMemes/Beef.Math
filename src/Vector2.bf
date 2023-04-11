@@ -37,13 +37,15 @@ struct Vector2<T> : IEquatable<Self>, IFormattable
 
 	public bool Equals(Vector2<T> other) => this == other;
 
-	public void ToString(String strBuffer)
+	public void ToString(String outString) => ToString(outString,"G",CultureInfo.CurrentCulture);
+	public void ToString(String outString, String format) => ToString(outString,format,CultureInfo.CurrentCulture);
+	public void ToString(String outString, String format, IFormatProvider formatProvider)
 	{
-		strBuffer.Append("<");
-		X.ToString(strBuffer);
-		strBuffer.Append(", ");
-		Y.ToString(strBuffer);
-		strBuffer.Append(">");
+		outString.Append("<");
+		outString.Append(X.ToString(.. scope String(),format,formatProvider));
+		outString.Append(",");
+		outString.Append(Y.ToString(.. scope String(),format,formatProvider));
+		outString.Append(">");
 	}
 
 	// TODO Conversion
