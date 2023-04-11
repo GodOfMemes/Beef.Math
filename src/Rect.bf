@@ -8,17 +8,17 @@ struct Rect
 	public const Rect SizeOne = Rect(0, 0, 1, 1);
 	public const Rect PosOne = Rect(1, 1, 0, 0);
 
-	public int X;
-	public int Y;
-	public int Width;
-	public int Height;
+	public int32 X;
+	public int32 Y;
+	public int32 Width;
+	public int32 Height;
 
 	public this()
 	{
 		this = default;
 	}
 
-	public this(int x, int y, int width, int height)
+	public this(int32 x, int32 y, int32 width, int32 height)
 	{
 		X = x;
 		Y = y;
@@ -34,7 +34,7 @@ struct Rect
 		Height = size.Y;
 	}
 
-	public this(int x, int y, uint width, uint height)
+	public this(int32 x, int32 y, uint width, uint height)
 	{
 		X = x;
 		Y = y;
@@ -80,7 +80,7 @@ struct Rect
 	    }
 	}
 
-	public int Left
+	public int32 Left
 	{
 		get => X;
 		set	mut
@@ -91,7 +91,7 @@ struct Rect
 		}
 	}
 
-	public int Right
+	public int32 Right
 	{
 		get => X + Width;
 		set	mut
@@ -101,7 +101,7 @@ struct Rect
 		}
 	}
 
-	public int Top
+	public int32 Top
 	{
 		get => Y;
 		set mut
@@ -112,7 +112,7 @@ struct Rect
 		}
 	}
 
-	public int Bottom
+	public int32 Bottom
 	{
 		get => Y + Height;
 		set mut
@@ -122,7 +122,7 @@ struct Rect
 		}
 	}
 	
-	public int Area => Width * Height;
+	public int32 Area => Width * Height;
 	
 	public bool Overlaps(Rect rect)
 	{
