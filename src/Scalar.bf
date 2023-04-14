@@ -19,6 +19,7 @@ class Scalar<T>
 
 	public static readonly T Pi;
 	public static readonly T PiOver2;
+	public static readonly T Tau;
 
 	static this()
 	{
@@ -36,6 +37,7 @@ class Scalar<T>
 			NaN = (.)(Object)float.NaN;
 
 			Pi = (.)(Object)Math.PI_f;
+			Tau = (.)(Object)Math.Tau_f;
 			PiOver2 = (.)(Object)(Math.PI_f / 2);
 		}
 		else if(typeof(T) == typeof(double))
@@ -51,6 +53,7 @@ class Scalar<T>
 			NegativeInfinity = (.)(Object)double.NegativeInfinity;
 			NaN = (.)(Object)double.NaN;
 
+			Tau = (.)(Object)Math.Tau_d;
 			Pi = (.)(Object)Math.PI_d;
 			PiOver2 = (.)(Object)(Math.PI_d / 2);
 		}
@@ -67,6 +70,7 @@ class Scalar<T>
 			NegativeInfinity = default;
 			NaN = default;
 
+			Tau = (.)(Object)(int)Math.Tau_f;
 			Pi = (.)(Object)(int)Math.PI_f;
 			PiOver2 = (.)(Object)(int)(Math.PI_f / 2);
 		}
@@ -83,6 +87,7 @@ class Scalar<T>
 			NegativeInfinity = default;
 			NaN = default;
 
+			Tau = (.)(Object)(uint)Math.Tau_f;
 			Pi = (.)(Object)(uint)Math.PI_f;
 			PiOver2 = (.)(Object)(uint)(Math.PI_f / 2);
 		}
@@ -405,6 +410,190 @@ public static class Scalar
 		else if(typeof(T) == typeof(uint))
 		{
 			return (.)(Object)Math.Cos((uint)(Object)x);
+		}
+
+		return default;
+	}
+
+	public static T Asin<T>(T x)
+	{
+		if(typeof(T) == typeof(float))
+		{
+			return (.)(Object)Math.Asin((float)(Object)x);
+		}
+		else if(typeof(T) == typeof(double))
+		{
+			return (.)(Object)Math.Asin((double)(Object)x);
+		}
+		else if(typeof(T) == typeof(int))
+		{
+			return (.)(Object)Math.Asin((int)(Object)x);
+		}
+		else if(typeof(T) == typeof(uint))
+		{
+			return (.)(Object)Math.Asin((uint)(Object)x);
+		}
+
+		return default;
+	}
+
+	public static T Acos<T>(T x)
+	{
+		if(typeof(T) == typeof(float))
+		{
+			return (.)(Object)Math.Acos((float)(Object)x);
+		}
+		else if(typeof(T) == typeof(double))
+		{
+			return (.)(Object)Math.Acos((double)(Object)x);
+		}
+		else if(typeof(T) == typeof(int))
+		{
+			return (.)(Object)Math.Acos((int)(Object)x);
+		}
+		else if(typeof(T) == typeof(uint))
+		{
+			return (.)(Object)Math.Acos((uint)(Object)x);
+		}
+
+		return default;
+	}
+
+	public static T Atan<T>(T x)
+	{
+		if(typeof(T) == typeof(float))
+		{
+			return (.)(Object)Math.Atan((float)(Object)x);
+		}
+		else if(typeof(T) == typeof(double))
+		{
+			return (.)(Object)Math.Atan((double)(Object)x);
+		}
+		else if(typeof(T) == typeof(int))
+		{
+			return (.)(Object)Math.Atan((int)(Object)x);
+		}
+		else if(typeof(T) == typeof(uint))
+		{
+			return (.)(Object)Math.Atan((uint)(Object)x);
+		}
+
+		return default;
+	}
+
+	public static T Atan2<T>(T y, T x)
+	{
+		if(typeof(T) == typeof(float))
+		{
+			return (.)(Object)Math.Atan2((float)(Object)y,(float)(Object)x);
+		}
+		else if(typeof(T) == typeof(double))
+		{
+			return (.)(Object)Math.Atan2((double)(Object)y,(double)(Object)x);
+		}
+		else if(typeof(T) == typeof(int))
+		{
+			return (.)(Object)Math.Atan2((int)(Object)y,(int)(Object)x);
+		}
+		else if(typeof(T) == typeof(uint))
+		{
+			return (.)(Object)Math.Atan2((uint)(Object)y,(uint)(Object)x);
+		}
+
+		return default;
+	}
+
+	public static T As<TF,T>(TF value)
+	{
+
+		if(typeof(TF) == typeof(float) && typeof(T) == typeof(float))
+		{
+			return (T)(Object)(float)(float)(Object)value;
+		}
+		else if(typeof(TF) == typeof(float) && typeof(T) == typeof(double))
+		{
+			return (T)(Object)(float)(double)(Object)value;
+		}
+		else if(typeof(TF) == typeof(float) && typeof(T) == typeof(int))
+		{
+			return (T)(Object)(float)(int)(Object)value;
+		}
+		else if(typeof(TF) == typeof(float) && typeof(T) == typeof(uint))
+		{
+			return (T)(Object)(float)(uint)(Object)value;
+		}
+
+		else if(typeof(TF) == typeof(double) && typeof(T) == typeof(float))
+		{
+			return (T)(Object)(double)(float)(Object)value;
+		}
+		else if(typeof(TF) == typeof(double) && typeof(T) == typeof(double))
+		{
+			return (T)(Object)(double)(double)(Object)value;
+		}
+		else if(typeof(TF) == typeof(double) && typeof(T) == typeof(int))
+		{
+			return (T)(Object)(double)(int)(Object)value;
+		}
+		else if(typeof(TF) == typeof(double) && typeof(T) == typeof(uint))
+		{
+			return (T)(Object)(double)(uint)(Object)value;
+		}
+
+		else if(typeof(TF) == typeof(int) && typeof(T) == typeof(float))
+		{
+			return (T)(Object)(int)(float)(Object)value;
+		}
+		else if(typeof(TF) == typeof(int) && typeof(T) == typeof(double))
+		{
+			return (T)(Object)(int)(double)(Object)value;
+		}
+		else if(typeof(TF) == typeof(int) && typeof(T) == typeof(int))
+		{
+			return (T)(Object)(int)(int)(Object)value;
+		}
+		else if(typeof(TF) == typeof(int) && typeof(T) == typeof(uint))
+		{
+			return (T)(Object)(int)(uint)(Object)value;
+		}
+
+		else if(typeof(TF) == typeof(uint) && typeof(T) == typeof(float))
+		{
+			return (T)(Object)(uint)(float)(Object)value;
+		}
+		else if(typeof(TF) == typeof(uint) && typeof(T) == typeof(double))
+		{
+			return (T)(Object)(uint)(double)(Object)value;
+		}
+		else if(typeof(TF) == typeof(uint) && typeof(T) == typeof(int))
+		{
+			return (T)(Object)(uint)(int)(Object)value;
+		}
+		else if(typeof(TF) == typeof(uint) && typeof(T) == typeof(uint))
+		{
+			return (T)(Object)(uint)(uint)(Object)value;
+		}
+
+		return default;
+	}
+
+	public static T IEEERemainder<T>(T x, T y)
+	{
+		if(typeof(T) == typeof(float))
+		{
+			return (.)(Object)Math.IEEERemainder((float)(Object)y,(float)(Object)x);
+		}
+		else if(typeof(T) == typeof(double))
+		{
+			return (.)(Object)Math.IEEERemainder((double)(Object)y,(double)(Object)x);
+		}
+		else if(typeof(T) == typeof(int))
+		{
+			return (.)(Object)Math.IEEERemainder((int)(Object)y,(int)(Object)x);
+		}
+		else if(typeof(T) == typeof(uint))
+		{
+			return (.)(Object)Math.IEEERemainder((uint)(Object)y,(uint)(Object)x);
 		}
 
 		return default;

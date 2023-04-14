@@ -229,8 +229,8 @@ public static class Matrix4x4
 	public static Matrix4x4<T> CreateLookAt<T>(Vector3<T> position, Vector3<T> target, Vector3<T> up)
 		where T : IFormattable
 	{
-	    Vector3<T> zaxis = Vector3.Normalize(position - target);
-	    Vector3<T> xaxis = Vector3.Normalize(Vector3.Cross(up, zaxis));
+	    Vector3<T> zaxis = Vector3.ToNormalized(position - target);
+	    Vector3<T> xaxis = Vector3.ToNormalized(Vector3.Cross(up, zaxis));
 	    Vector3<T> yaxis = Vector3.Cross(zaxis,xaxis);
 
 	    Matrix4x4<T> result = .Identity;
@@ -455,4 +455,8 @@ public static class Matrix4x4
 	    result.M33 = z;
 	    return result;
 	}
+
+	public static Matrix4x4<T> CreateTransform<T>(Vector3<T> translation,Quaternion<T> rotation, Vector3<T> scale)
+		where T : IFormattable
+		=> .Identity * CreateTranslation(translation) * CreateFromQuaternion(rotation) * CreateScale(scale);
 }
